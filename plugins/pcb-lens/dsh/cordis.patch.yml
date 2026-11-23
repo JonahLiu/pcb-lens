@@ -1,0 +1,39 @@
+# DeepSeek Harness bundle patch for pcb-lens.
+#
+# Same contract as the other agents' manifests in this directory: the plugin
+# connects the already installed `pcb-lens` binary, found on PATH. Install the
+# binary first (install.sh, Homebrew or nix); see the repository README.
+#
+# Two rows are inserted:
+#   mcp-pcb-lens  - the MCP server over stdio; its tools are named
+#                   mcp__pcb-lens__*
+#   skill-pcb-lens - a skill provider mounting this package's skills/ directory
+#                   (populated from the repository's single generated SKILL.md
+#                   by the prepack step)
+
+- insert:
+    - id: mcp-pcb-lens
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: pcb-lens
+        transport: stdio
+        command: pcb-lens
+        toolCallTimeoutMs: 120000
+
+    - id: skill-pcb-lens
+      name: '@deepseek-ai/dsh-skill-filesystem'
+      config:
+        providerName: pcb-lens
+        includeDefaultRoots: false
+        watch: false
+        customSkillDirs:
+          - !!js >-
+            ((path, module) =>
+              path.join(
+                path.dirname(
+                  module.createRequire(path.join(ctx.get('profileContext').dir, 'package.json'))
+                    .resolve('dsh-pcb-lens/package.json')
+                ),
+                'skills'
+              )
+            )(process.getBuiltinModule('node:path'), process.getBuiltinModule('node:module'))

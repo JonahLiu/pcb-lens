@@ -83,6 +83,21 @@ Open **Customize**, choose **Browse Marketplace**, then **Add Marketplace → Im
 </details>
 
 <details>
+<summary>DeepSeek Harness</summary>
+
+The binary has to be installed first, like every other agent above. Then install
+the plugin into a profile:
+
+```bash
+dsh plugin --profile web add dsh-pcb-lens
+```
+
+It inserts the MCP server, so its tools appear as `mcp__pcb-lens__*`, and the
+skill beside them. The plugin reads `pcb-lens` from `PATH`.
+
+</details>
+
+<details>
 <summary>GitHub Copilot CLI</summary>
 
 ```bash

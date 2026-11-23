@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="PCB Lens for DSH">
+  <rect width="64" height="64" rx="14" fill="#0b1020"/>
+  <g stroke="#4fd1c5" stroke-width="1.6" fill="none" opacity="0.55">
+    <path d="M12 20h14l6 6h16"/>
+    <path d="M12 44h20l6-6h14"/>
+    <path d="M22 12v16"/><path d="M42 52V36"/>
+  </g>
+  <g fill="#4fd1c5">
+    <rect x="10" y="18" width="4" height="4" rx="1"/><rect x="10" y="42" width="4" height="4" rx="1"/>
+    <rect x="20" y="10" width="4" height="4" rx="1"/><rect x="40" y="50" width="4" height="4" rx="1"/>
+    <rect x="48" y="24" width="4" height="4" rx="1"/><rect x="48" y="34" width="4" height="4" rx="1"/>
+  </g>
+  <circle cx="34" cy="32" r="13" stroke="#f6ad55" stroke-width="2.4" fill="none"/>
+  <circle cx="34" cy="32" r="5.5" fill="#f6ad55" opacity="0.85"/>
+  <path d="M43 41l7 7" stroke="#f6ad55" stroke-width="3.2" stroke-linecap="round"/>
+</svg>

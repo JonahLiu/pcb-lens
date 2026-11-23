@@ -1,0 +1,47 @@
+{
+  "name": "dsh-pcb-lens",
+  "version": "0.1.0-rc.1",
+  "description": "Query IPC-2581 PCB layouts and Cadence Allegro .brd boards through the pcb-lens MCP server, which the plugin connects, with a skill for its command line where MCP is unavailable. Needs the pcb-lens binary on PATH.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/IntelligentElectron/pcb-lens/tree/main/plugins/pcb-lens/dsh",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IntelligentElectron/pcb-lens.git",
+    "directory": "plugins/pcb-lens/dsh"
+  },
+  "files": [
+    "cordis.patch.yml",
+    "icon.svg",
+    "skills/**",
+    "README.md"
+  ],
+  "scripts": {
+    "prepack": "node scripts/copy-skill.mjs"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "mcp",
+    "eda",
+    "pcb",
+    "ipc2581",
+    "allegro",
+    "cadence"
+  ],
+  "engines": {
+    "node": ">=22.15.0",
+    "dsh": ">=0.2.1-0 <0.3.0-0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "compatibility": {
+      "dsh": ">=0.2.1-0 <0.3.0-0",
+      "dshReleases": {
+        "0.2.1-rc.2": "compatible"
+      }
+    }
+  }
+}
